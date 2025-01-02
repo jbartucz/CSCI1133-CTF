@@ -24,6 +24,24 @@ rebuild_and_print = lambda: print(
     chr(102) + chr(111) + chr(114) + chr(32) + chr(97) + chr(32) + chr(103) + chr(114) + 
     chr(97) + chr(100) + chr(101) + chr(46)
 )
+rebuild_and_print2 = lambda: print(
+    chr(42) + chr(42) + chr(42) + chr(32) + chr(70) + chr(108) + chr(97) + chr(103) + chr(32) + chr(50) + chr(32) + 
+    chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(46) + chr(32) + chr(42) + chr(42) + 
+    chr(42) + chr(10) + chr(84) + chr(104) + chr(105) + chr(115) + chr(32) + chr(111) + chr(110) + chr(101) + chr(32) + 
+    chr(105) + chr(115) + chr(32) + chr(104) + chr(105) + chr(100) + chr(100) + chr(101) + chr(110) + chr(44) + chr(32) + 
+    chr(98) + chr(117) + chr(116) + chr(32) + chr(105) + chr(116) + chr(32) + chr(101) + chr(120) + chr(105) + chr(115) + 
+    chr(116) + chr(115) + chr(33) + chr(32) + chr(89) + chr(111) + chr(117) + chr(32) + chr(119) + chr(105) + chr(108) + 
+    chr(108) + chr(32) + chr(110) + chr(101) + chr(101) + chr(100) + chr(32) + chr(116) + chr(111) + chr(32) + chr(115) + 
+    chr(104) + chr(111) + chr(119) + chr(32) + chr(104) + chr(105) + chr(100) + chr(100) + chr(101) + chr(110) + chr(32) + 
+    chr(102) + chr(105) + chr(108) + chr(101) + chr(115) + chr(32) + chr(117) + chr(115) + chr(105) + chr(110) + chr(103) + 
+    chr(32) + chr(116) + chr(104) + chr(101) + chr(32) + chr(108) + chr(115) + chr(32) + chr(99) + chr(111) + chr(109) + 
+    chr(109) + chr(97) + chr(110) + chr(100) + chr(46)
+)
+rebuild_string3 = lambda: (
+    chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(51) + chr(47) + chr(99) + chr(47) + chr(97) + chr(47) + 
+    chr(101) + chr(47) + chr(100) + chr(47) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(51) + chr(46) + 
+    chr(116) + chr(120) + chr(116)
+)
 w_decrypt = lambda user_password: print(
     f"{''.join(chr(c) for c in [72, 101, 108, 108, 111])}, "
     f"{user_password}! "
@@ -41,8 +59,6 @@ def pw_exists(password):
 
 def decode_pw(flagnum: int):
 
-    lambda_pw(f"Preparing Flag {flagnum}")
-
     match flagnum:
         case 1:
             try:
@@ -58,6 +74,48 @@ def decode_pw(flagnum: int):
             except Exception as error:
                 lambda_pw(chr(65) + chr(110) + chr(32) + chr(101) + chr(120) + chr(99) + chr(101) + chr(112) + chr(116) + chr(105) + chr(111) + chr(110) + chr(32) + chr(111) + chr(99) + chr(99) + chr(117) + chr(114) + chr(114) + chr(101) + chr(100) + chr(58) + chr(32), error)
 
+        case 2:
+            try:
+                if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50)):
+                    pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50))
+                    lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
+                if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + "/." + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + ".txt"):
+                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + "/." + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + ".txt", "w") as f01:
+                        f01.write(str(passwords[flagnum]) + "\n")
+                    rebuild_and_print2()
+
+
+            except Exception as error:
+                lambda_pw(chr(65) + chr(110) + chr(32) + chr(101) + chr(120) + chr(99) + chr(101) + chr(112) + chr(116) + chr(105) + chr(111) + chr(110) + chr(32) + chr(111) + chr(99) + chr(99) + chr(117) + chr(114) + chr(114) + chr(101) + chr(100) + chr(58) + chr(32), error)
+
+        case 3:
+            try:
+                if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(51)):
+                    pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(51))
+                    lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(51) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
+
+                root_dir = "flag03"
+                letters = ['a','b','c','d','e']
+                for letter1 in letters:
+                    level1_path = pword.path.join(root_dir, letter1)
+                    pword.makedirs(level1_path, exist_ok=True)
+                    for letter2 in letters:
+                        level2_path = pword.path.join(level1_path, letter2)
+                        pword.makedirs(level2_path, exist_ok=True)
+                        for letter3 in letters:
+                            level3_path = pword.path.join(level2_path, letter3)
+                            pword.makedirs(level3_path, exist_ok=True)
+                            for letter4 in letters:
+                                level4_path = pword.path.join(level3_path, letter4)
+                                pword.makedirs(level4_path, exist_ok=True)
+
+                with open(rebuild_string3(), "w") as f01:
+                    f01.write(str(passwords[flagnum]) + "\n")
+
+                print("\n*** You will need to learn how to use the 'find' command to locate flag03.txt\n")
+
+            except Exception as error:
+                lambda_pw(chr(65) + chr(110) + chr(32) + chr(101) + chr(120) + chr(99) + chr(101) + chr(112) + chr(116) + chr(105) + chr(111) + chr(110) + chr(32) + chr(111) + chr(99) + chr(99) + chr(117) + chr(114) + chr(114) + chr(101) + chr(100) + chr(58) + chr(32), error)
 
 if __name__ == "__main__":
 
@@ -75,7 +133,7 @@ if __name__ == "__main__":
             password_inpt = int(input(chr(69) + chr(110) + chr(116) + chr(101) + chr(114) + chr(32) + chr(116) + chr(104) + chr(101) + chr(32) + chr(99) + chr(111) + chr(100) + chr(101) + chr(32) + chr(121) + chr(111) + chr(117) + chr(32) + chr(102) + chr(111) + chr(117) + chr(110) + chr(100) + chr(58) + chr(32)))
             password_index = passwords.index(password_inpt)
 
-            lambda_pw(chr(67) + chr(111) + chr(110) + chr(103) + chr(114) + chr(97) + chr(116) + chr(117) + chr(108) + chr(97) + chr(116) + chr(105) + chr(111) + chr(110) + chr(115) + chr(33) + chr(32) + chr(89) + chr(111) + chr(117) + chr(32) + chr(102) + chr(111) + chr(117) + chr(110) + chr(100) + chr(32) + chr(102) + chr(108) + chr(97) + chr(103) + chr(32) + chr(35), end="")
+            lambda_pw("\n" + chr(67) + chr(111) + chr(110) + chr(103) + chr(114) + chr(97) + chr(116) + chr(117) + chr(108) + chr(97) + chr(116) + chr(105) + chr(111) + chr(110) + chr(115) + chr(33) + chr(32) + chr(89) + chr(111) + chr(117) + chr(32) + chr(102) + chr(111) + chr(117) + chr(110) + chr(100) + chr(32) + chr(102) + chr(108) + chr(97) + chr(103) + chr(32) + chr(35), end="")
             lambda_pw(password_index)
             if password_index == len(passwords) - 1:
                 rebuild_and_print()
