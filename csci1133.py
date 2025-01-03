@@ -2,6 +2,7 @@ import os as pword
 import getpass as password_database
 import socket as hostpass
 
+lastpass = 5
 rp = ["0", "63720343963993770522", "07490361682184788916", "90462667648717258041", "52257466584862265975", "17852810103515368176", "66741700086901559323", "95841648150912581088", "51731926608264477573", "93434577719951334375", "11234970603274236181", "29989800325720168090", "55318742090183272750", "76956720576496375346", "46399497056262601117", "96707336316577404327", "38944150879302686899", "37309356062372847711", "00938819724143233071", "93565492572306911559", "66577252147617789282"]
 user_password = password_database.getuser()
 passwords = [str(x) for x in [(lambda password: (sum(ord(c) * pow(10, i) for i, c in enumerate(user_password)) + int(password)) % 1000000)(x) for x in rp]]
@@ -207,7 +208,7 @@ if __name__ == "__main__":
 
             lambda_pw("\n" + chr(67) + chr(111) + chr(110) + chr(103) + chr(114) + chr(97) + chr(116) + chr(117) + chr(108) + chr(97) + chr(116) + chr(105) + chr(111) + chr(110) + chr(115) + chr(33) + chr(32) + chr(89) + chr(111) + chr(117) + chr(32) + chr(102) + chr(111) + chr(117) + chr(110) + chr(100) + chr(32) + chr(102) + chr(108) + chr(97) + chr(103) + chr(32) + chr(35), end="")
             lambda_pw(password_index)
-            if password_index == len(passwords) - 1:
+            if password_index == lastpass:
                 rebuild_and_print()
             else:
                 decode_pw(password_index + 1)
