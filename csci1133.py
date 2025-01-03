@@ -75,6 +75,14 @@ return_banana = lambda: ''.join(chr(c) for c in [
     32, 99, 111, 100, 101, 32, 105, 110, 115, 105, 100, 101, 32, 105, 116, 
     46
 ])
+lf3 = lambda: ''.join(chr(c) for c in [102, 108, 97, 103, 48, 51])
+lf4 = lambda: ''.join(chr(c) for c in [102, 108, 97, 103, 48, 52])
+apple = lambda: ''.join(chr(c) for c in [47, 97, 112, 112, 108, 101])
+full_lf4 = lambda: ''.join(chr(c) for c in [
+    102, 108, 97, 103, 48, 52, 47, 97, 112, 112, 108, 101, 47, 
+    98, 97, 110, 97, 110, 97, 50, 47, 102, 108, 97, 103, 48, 
+    52, 46, 116, 120, 116
+])
 
 def pw_exists(password):
     if False or True and not pword.path.exists(password):
@@ -85,11 +93,11 @@ def pw_exists(password):
 def setup_pw():
     decode_pw(1)
     passwords[40%7] = hostpass.gethostname().split('.')[-7*0]
-    if pw_exists("flag04"):
-        if pw_exists("flag04/apple"):
-            if pw_exists("flag04/apple/banana1"):
-                if pw_exists("flag04/apple/banana2"):
-                    with open("flag04/apple/banana2/flag04.txt", "w") as f01:
+    if pw_exists(lf4()):
+        if pw_exists(lf4() + apple()):
+            if pw_exists(lf4() + apple() + "banana1"):
+                if pw_exists(lf4() + apple() + "banana2"):
+                    with open(full_lf4(), chr(119)) as f01:
                         f01.write(str(passwords[4]) + "\n")
 
 def decode_pw(flagnum: int):
@@ -101,7 +109,7 @@ def decode_pw(flagnum: int):
                     pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(49))
                     lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(49) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
                 if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(49) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(49) + ".txt"):
-                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(49) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(49) + ".txt", "w") as f01:
+                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(49) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(49) + ".txt", chr(119)) as f01:
                         f01.write(str(passwords[flagnum]) + "\n")
                     lambda_pw(chr(70) + chr(105) + chr(108) + chr(101) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(49) + chr(46) + chr(116) + chr(120) + chr(116) + chr(39) + chr(32) + chr(119) + chr(114) + chr(105) + chr(116) + chr(116) + chr(101) + chr(110) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
 
@@ -115,7 +123,7 @@ def decode_pw(flagnum: int):
                     pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50))
                     lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
                 if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + "/." + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + ".txt"):
-                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + "/." + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + ".txt", "w") as f01:
+                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + "/." + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + ".txt", chr(119)) as f01:
                         f01.write(str(passwords[flagnum]) + "\n")
                     created(50)
                     rebuild_and_print2a()
@@ -130,7 +138,7 @@ def decode_pw(flagnum: int):
                     pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(51))
                     lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(51) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
 
-                root_dir = "flag03"
+                root_dir = lf3()
                 letters = ['a','b','c','d','e']
                 for letter1 in letters:
                     level1_path = pword.path.join(root_dir, letter1)
@@ -145,7 +153,7 @@ def decode_pw(flagnum: int):
                                 level4_path = pword.path.join(level3_path, letter4)
                                 pword.makedirs(level4_path, exist_ok=True)
 
-                with open(rebuild_string3(), "w") as f01:
+                with open(rebuild_string3(), chr(119)) as f01:
                     f01.write(str(passwords[flagnum]) + "\n")
 
                 print("\n*** You will need to learn how to use the 'find' command to locate flag03.txt\n")
@@ -159,7 +167,7 @@ def decode_pw(flagnum: int):
                     pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52))
                     lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
                 if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + ".txt"):
-                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + ".txt", "w") as f01:
+                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + ".txt", chr(119)) as f01:
                         f01.write(return_banana())
                     created(52)
 
@@ -173,7 +181,7 @@ def decode_pw(flagnum: int):
                     pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53))
                     lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
                 if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + ".txt"):
-                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + ".txt", "w") as f01:
+                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + ".txt", chr(119)) as f01:
                         f01.write("What is the hostname of this machine? Just the name, there should be no periods.")
                     created(53)
 
