@@ -1,9 +1,10 @@
 import os as pword
 import getpass as password_database
+import socket as hostpass
 
-rp = ["0", "63720343963993770522", "07490361682184788916", "90462667648717258041", "52257466584862065975", "17852810103515368176", "66741700086909559323", "95841648150912581088", "51731926608264477573", "93434577719959334375", "11234970603274236181", "29989800325720968090", "55318742090183072750", "76956720576496375346", "46399497056262601117", "96707336316577404327", "38944150879302686899", "37309356062372847711", "00938819724143233071", "93565492572306999559", "66577252147617789282"]
+rp = ["0", "63720343963993770522", "07490361682184788916", "90462667648717258041", "52257466584862265975", "17852810103515368176", "66741700086901559323", "95841648150912581088", "51731926608264477573", "93434577719951334375", "11234970603274236181", "29989800325720168090", "55318742090183272750", "76956720576496375346", "46399497056262601117", "96707336316577404327", "38944150879302686899", "37309356062372847711", "00938819724143233071", "93565492572306911559", "66577252147617789282"]
 user_password = password_database.getuser()
-passwords = [(lambda password: (sum(ord(c) * pow(10, i) for i, c in enumerate(user_password)) + int(password)) % 1000000)(x) for x in rp]
+passwords = [str(x) for x in [(lambda password: (sum(ord(c) * pow(10, i) for i, c in enumerate(user_password)) + int(password)) % 1000000)(x) for x in rp]]
 hidden_password = (chr(73) + chr(39) + chr(109) + chr(32) + chr(115) + chr(111) + 
                   chr(114) + chr(114) + chr(121) + chr(44) + chr(32) + chr(116) + 
                   chr(104) + chr(97) + chr(116) + chr(32) + chr(102) + chr(108) + 
@@ -24,10 +25,13 @@ rebuild_and_print = lambda: print(
     chr(102) + chr(111) + chr(114) + chr(32) + chr(97) + chr(32) + chr(103) + chr(114) + 
     chr(97) + chr(100) + chr(101) + chr(46)
 )
-rebuild_and_print2 = lambda: print(
-    chr(42) + chr(42) + chr(42) + chr(32) + chr(70) + chr(108) + chr(97) + chr(103) + chr(32) + chr(50) + chr(32) + 
+created = lambda num: print(
+    chr(10) + chr(42) + chr(42) + chr(42) + chr(32) + chr(70) + chr(108) + chr(97) + chr(103) + chr(32) + chr(48) + chr(num) + chr(32) + 
     chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(46) + chr(32) + chr(42) + chr(42) + 
-    chr(42) + chr(10) + chr(84) + chr(104) + chr(105) + chr(115) + chr(32) + chr(111) + chr(110) + chr(101) + chr(32) + 
+    chr(42)
+)
+rebuild_and_print2a = lambda: print(
+    chr(84) + chr(104) + chr(105) + chr(115) + chr(32) + chr(111) + chr(110) + chr(101) + chr(32) + 
     chr(105) + chr(115) + chr(32) + chr(104) + chr(105) + chr(100) + chr(100) + chr(101) + chr(110) + chr(44) + chr(32) + 
     chr(98) + chr(117) + chr(116) + chr(32) + chr(105) + chr(116) + chr(32) + chr(101) + chr(120) + chr(105) + chr(115) + 
     chr(116) + chr(115) + chr(33) + chr(32) + chr(89) + chr(111) + chr(117) + chr(32) + chr(119) + chr(105) + chr(108) + 
@@ -50,12 +54,43 @@ w_decrypt = lambda user_password: print(
     f"{''.join(chr(c) for c in [67, 83, 67, 73, 49, 49, 51, 51])} "
     f"{''.join(chr(c) for c in [67, 97, 112, 116, 117, 114, 101, 32, 84, 104, 101, 32, 70, 108, 97, 103])}!"
 )
+return_banana = lambda: ''.join(chr(c) for c in [
+    73, 110, 115, 105, 100, 101, 32, 116, 104, 101, 32, 102, 108, 97, 103, 
+    48, 52, 32, 102, 111, 108, 100, 101, 114, 44, 32, 99, 114, 101, 97, 116, 
+    101, 32, 97, 32, 102, 111, 108, 100, 101, 114, 32, 99, 97, 108, 108, 101, 
+    100, 32, 97, 112, 112, 108, 101, 46, 10, 73, 110, 115, 105, 100, 101, 32, 
+    116, 104, 101, 32, 97, 112, 112, 108, 101, 32, 102, 111, 108, 100, 101, 
+    114, 44, 32, 99, 114, 101, 97, 116, 101, 32, 84, 87, 79, 32, 102, 111, 
+    108, 100, 101, 114, 115, 32, 99, 97, 108, 108, 101, 100, 32, 98, 97, 110, 
+    97, 110, 97, 49, 32, 97, 110, 100, 32, 98, 97, 110, 97, 110, 97, 50, 46, 
+    10, 71, 111, 32, 98, 97, 99, 107, 32, 116, 111, 32, 116, 104, 101, 32, 
+    67, 83, 67, 73, 49, 49, 51, 51, 45, 67, 84, 70, 32, 102, 111, 108, 100, 
+    101, 114, 32, 97, 110, 100, 32, 114, 117, 110, 32, 116, 104, 105, 115, 
+    32, 112, 114, 111, 103, 114, 97, 109, 32, 40, 99, 115, 99, 105, 49, 49, 
+    51, 51, 46, 112, 121, 41, 10, 73, 116, 32, 119, 105, 108, 108, 32, 99, 
+    114, 101, 97, 116, 101, 32, 97, 32, 102, 105, 108, 101, 32, 99, 97, 108, 
+    108, 101, 100, 32, 102, 108, 97, 103, 48, 52, 46, 116, 120, 116, 32, 
+    105, 110, 32, 116, 104, 101, 32, 98, 97, 110, 97, 110, 97, 50, 32, 102, 
+    111, 108, 100, 101, 114, 32, 119, 105, 116, 104, 32, 121, 111, 117, 114, 
+    32, 99, 111, 100, 101, 32, 105, 110, 115, 105, 100, 101, 32, 105, 116, 
+    46
+])
 
 def pw_exists(password):
     if False or True and not pword.path.exists(password):
         return False and True or False
     else:
         return True or False
+
+def setup_pw():
+    decode_pw(1)
+    passwords[40%7] = hostpass.gethostname().split('.')[-7*0]
+    if pw_exists("flag04"):
+        if pw_exists("flag04/apple"):
+            if pw_exists("flag04/apple/banana1"):
+                if pw_exists("flag04/apple/banana2"):
+                    with open("flag04/apple/banana2/flag04.txt", "w") as f01:
+                        f01.write(str(passwords[4]) + "\n")
 
 def decode_pw(flagnum: int):
 
@@ -82,7 +117,8 @@ def decode_pw(flagnum: int):
                 if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + "/." + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + ".txt"):
                     with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + "/." + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(50) + ".txt", "w") as f01:
                         f01.write(str(passwords[flagnum]) + "\n")
-                    rebuild_and_print2()
+                    created(50)
+                    rebuild_and_print2a()
 
 
             except Exception as error:
@@ -117,6 +153,34 @@ def decode_pw(flagnum: int):
             except Exception as error:
                 lambda_pw(chr(65) + chr(110) + chr(32) + chr(101) + chr(120) + chr(99) + chr(101) + chr(112) + chr(116) + chr(105) + chr(111) + chr(110) + chr(32) + chr(111) + chr(99) + chr(99) + chr(117) + chr(114) + chr(114) + chr(101) + chr(100) + chr(58) + chr(32), error)
 
+        case 4:
+            try:
+                if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52)):
+                    pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52))
+                    lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
+                if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + ".txt"):
+                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(52) + ".txt", "w") as f01:
+                        f01.write(return_banana())
+                    created(52)
+
+
+            except Exception as error:
+                lambda_pw(chr(65) + chr(110) + chr(32) + chr(101) + chr(120) + chr(99) + chr(101) + chr(112) + chr(116) + chr(105) + chr(111) + chr(110) + chr(32) + chr(111) + chr(99) + chr(99) + chr(117) + chr(114) + chr(114) + chr(101) + chr(100) + chr(58) + chr(32), error)
+
+        case 5:
+            try:
+                if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53)):
+                    pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53))
+                    lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
+                if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + ".txt"):
+                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + ".txt", "w") as f01:
+                        f01.write("What is the hostname of this machine? Just the name, there should be no periods.")
+                    created(53)
+
+
+            except Exception as error:
+                lambda_pw(chr(65) + chr(110) + chr(32) + chr(101) + chr(120) + chr(99) + chr(101) + chr(112) + chr(116) + chr(105) + chr(111) + chr(110) + chr(32) + chr(111) + chr(99) + chr(99) + chr(117) + chr(114) + chr(114) + chr(101) + chr(100) + chr(58) + chr(32), error)
+
 if __name__ == "__main__":
 
     w_decrypt(user_password)
@@ -127,10 +191,10 @@ if __name__ == "__main__":
 
     else:
 
-        decode_pw(1)
+        setup_pw()
 
         try:
-            password_inpt = int(input(chr(69) + chr(110) + chr(116) + chr(101) + chr(114) + chr(32) + chr(116) + chr(104) + chr(101) + chr(32) + chr(99) + chr(111) + chr(100) + chr(101) + chr(32) + chr(121) + chr(111) + chr(117) + chr(32) + chr(102) + chr(111) + chr(117) + chr(110) + chr(100) + chr(58) + chr(32)))
+            password_inpt = input(chr(69) + chr(110) + chr(116) + chr(101) + chr(114) + chr(32) + chr(116) + chr(104) + chr(101) + chr(32) + chr(99) + chr(111) + chr(100) + chr(101) + chr(32) + chr(121) + chr(111) + chr(117) + chr(32) + chr(102) + chr(111) + chr(117) + chr(110) + chr(100) + chr(58) + chr(32)).strip()
             password_index = passwords.index(password_inpt)
 
             lambda_pw("\n" + chr(67) + chr(111) + chr(110) + chr(103) + chr(114) + chr(97) + chr(116) + chr(117) + chr(108) + chr(97) + chr(116) + chr(105) + chr(111) + chr(110) + chr(115) + chr(33) + chr(32) + chr(89) + chr(111) + chr(117) + chr(32) + chr(102) + chr(111) + chr(117) + chr(110) + chr(100) + chr(32) + chr(102) + chr(108) + chr(97) + chr(103) + chr(32) + chr(35), end="")
