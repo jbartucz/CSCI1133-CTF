@@ -3,7 +3,7 @@ import getpass as password_database
 import socket as hostpass
 import platform
 
-lastpass = 5
+lastpass = 6
 rp = ["0", "63720343963993770522", "07490361682184788916", "90462667648717258041", "52257466584862265975", "17852810103515368176", "66741700086901559323", "95841648150912581088", "51731926608264477573", "93434577719951334375", "11234970603274236181", "29989800325720168090", "55318742090183272750", "76956720576496375346", "46399497056262601117", "96707336316577404327", "38944150879302686899", "37309356062372847711", "00938819724143233071", "93565492572306911559", "66577252147617789282"]
 separator = lambda: chr(92) if platform.system() == "Windows" else chr(47)
 user_password = password_database.getuser()
@@ -78,6 +78,32 @@ return_banana = lambda: ''.join(chr(c) for c in [
     32, 99, 111, 100, 101, 32, 105, 110, 115, 105, 100, 101, 32, 105, 116, 
     46
 ])
+hn_string = lambda: ''.join([chr(c) for c in [
+    87, 104, 97, 116, 32, 105, 115, 32, 
+    116, 104, 101, 32, 104, 111, 115, 116, 110, 97, 109, 101, 32, 
+    111, 102, 32, 116, 104, 105, 115, 32, 
+    109, 97, 99, 104, 105, 110, 101, 63, 32, 
+    74, 117, 115, 116, 32, 116, 104, 101, 32, 
+    110, 97, 109, 101, 44, 32, 116, 104, 101, 114, 101, 32, 
+    115, 104, 111, 117, 108, 100, 32, 98, 101, 32, 
+    110, 111, 32, 112, 101, 114, 105, 111, 100, 115, 46
+]])
+move_string = lambda: ''.join([chr(c) for c in [
+    77, 111, 118, 101, 32, 116, 104, 105, 115, 32, 
+    102, 105, 108, 101, 32, 105, 110, 116, 111, 32, 
+    116, 104, 101, 32, 115, 117, 98, 102, 111, 108, 
+    100, 101, 114, 32, 110, 97, 109, 101, 100, 32, 
+    109, 111, 118, 101, 95, 102, 105, 108, 101, 95, 
+    104, 101, 114, 101, 44, 32, 97, 110, 100, 32, 
+    116, 104, 101, 110, 32, 114, 117, 110, 32, 116, 
+    104, 105, 115, 32, 112, 114, 111, 103, 114, 97, 
+    109, 32, 97, 103, 97, 105, 110, 46, 32, 73, 116, 
+    32, 119, 105, 108, 108, 32, 97, 117, 116, 111, 
+    109, 97, 116, 105, 99, 97, 108, 108, 121, 32, 
+    109, 111, 100, 105, 102, 121, 32, 105, 116, 115, 
+    32, 99, 111, 110, 116, 101, 110, 116, 115, 46, 
+    10
+]])
 lf3 = lambda: ''.join(chr(c) for c in [102, 108, 97, 103, 48, 51])
 lf4 = lambda: ''.join(chr(c) for c in [102, 108, 97, 103, 48, 52])
 apple = lambda: separator() + ''.join(chr(c) for c in [97, 112, 112, 108, 101])
@@ -95,13 +121,18 @@ def pw_exists(password):
 
 def setup_pw():
     decode_pw(1)
-    passwords[40%7] = hostpass.gethostname().split('.')[-7*0]
+    passwords[41%7] = hostpass.gethostname().split('.')[-7*0]
     if pw_exists(lf4()):
         if pw_exists(lf4() + apple()):
             if pw_exists(lf4() + apple() + separator() + "banana1"):
                 if pw_exists(lf4() + apple() + separator() + "banana2"):
                     with open(full_lf4(), chr(119)) as f01:
                         f01.write(str(passwords[4]) + "\n")
+    
+    if pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + "/" + chr(109) + chr(111) + chr(118) + chr(101) + chr(95) + chr(102) + chr(105) + chr(108) + chr(101) + chr(95) + chr(104) + chr(101) + chr(114) + chr(101) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + ".txt"):
+        with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + "/" + chr(109) + chr(111) + chr(118) + chr(101) + chr(95) + chr(102) + chr(105) + chr(108) + chr(101) + chr(95) + chr(104) + chr(101) + chr(114) + chr(101) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + ".txt", chr(119)) as f01:
+            f01.write(str(passwords[5]) + "\n")
+
 
 def decode_pw(flagnum: int):
 
@@ -187,11 +218,27 @@ def decode_pw(flagnum: int):
             try:
                 if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53)):
                     pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53))
-                    lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
+                if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + "/" + chr(109) + chr(111) + chr(118) + chr(101) + chr(95) + chr(102) + chr(105) + chr(108) + chr(101) + chr(95) + chr(104) + chr(101) + chr(114) + chr(101)):
+                    pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + "/" + chr(109) + chr(111) + chr(118) + chr(101) + chr(95) + chr(102) + chr(105) + chr(108) + chr(101) + chr(95) + chr(104) + chr(101) + chr(114) + chr(101))
+                lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
                 if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + ".txt"):
                     with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(53) + ".txt", chr(119)) as f01:
-                        f01.write("What is the hostname of this machine? Just the name, there should be no periods.")
+                        f01.write(move_string())
                     created(53)
+
+
+            except Exception as error:
+                lambda_pw(chr(65) + chr(110) + chr(32) + chr(101) + chr(120) + chr(99) + chr(101) + chr(112) + chr(116) + chr(105) + chr(111) + chr(110) + chr(32) + chr(111) + chr(99) + chr(99) + chr(117) + chr(114) + chr(114) + chr(101) + chr(100) + chr(58) + chr(32), error)
+
+        case 6:
+            try:
+                if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(54)):
+                    pword.mkdir(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(54))
+                    lambda_pw(chr(70) + chr(111) + chr(108) + chr(100) + chr(101) + chr(114) + chr(32) + chr(39) + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(54) + chr(39) + chr(32) + chr(99) + chr(114) + chr(101) + chr(97) + chr(116) + chr(101) + chr(100) + chr(32) + chr(115) + chr(117) + chr(99) + chr(99) + chr(101) + chr(115) + chr(115) + chr(102) + chr(117) + chr(108) + chr(108) + chr(121))
+                if not pw_exists(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(54) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(54) + ".txt"):
+                    with open(chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(54) + "/" + chr(102) + chr(108) + chr(97) + chr(103) + chr(48) + chr(54) + ".txt", chr(119)) as f01:
+                        f01.write(hn_string())
+                    created(54)
 
 
             except Exception as error:
